@@ -1,15 +1,15 @@
-from datetime import datetime
 import tkinter as tk
-from tkinter import Checkbutton, IntVar, messagebox
+from tkinter import Checkbutton, IntVar
+from data_manipulation import *
 
 def add_action():
     action_text = entry.get()
 
     if action_text:
         var = IntVar()
-        action_checkbox = Checkbutton(action_frame, text=action_text, variable=var)
+        action_checkbox = Checkbutton(frame, text=action_text, variable=var)
         action_checkbox.pack(anchor=tk.W)
-        actions_checkboxes.append((var, action_text))
+        actions.append((var, action_text))
         entry.delete(0, tk.END)
 
 def add_habit():
@@ -18,7 +18,7 @@ def add_habit():
         file.write(f"{habit_text}\n")
     habit_entry.delete(0, tk.END)
     var = IntVar()
-    action_checkbox = Checkbutton(action_frame, text=habit_text, variable=var)
+    action_checkbox = Checkbutton(frame, text=habit_text, variable=var)
     action_checkbox.pack(anchor=tk.W)
 
 def open_manager():
@@ -35,47 +35,35 @@ def open_manager():
     add_habit_button = tk.Button(manager_window, text="Add Habit", command=add_habit)
     add_habit_button.pack()
 
-def save_day():
-    day_date = datetime.today().strftime('%Y-%m-%d')
-    try:
-        with open("daily_activities.txt", "a") as file:
-            for var, text in actions_checkboxes:
-                file.write(f"{day_date}: {text}: {var.get()}\n")
-        messagebox.showinfo("Day Saved", "Data saved successfully!")
-    except Exception as e:
-        messagebox.showerror("Error", f"An error occurred: {str(e)}")
-
-def read_habits_from_file():
-    try:
-        with open("habits.txt", "r") as file:
-            habits = [line.strip() for line in file.readlines()]
-        return habits
-    except FileNotFoundError:
-        return []
-
 main_window = tk.Tk()
 main_window.title("Action List")
 
-entry = tk.Entry(main_window, width=30)
+""" entry = tk.Entry(main_window, width=30)
 entry.pack(pady=10)
 
 add_action_button = tk.Button(main_window, text="Add Action", command=add_action)
 add_action_button.pack()
+
 save_day_button = tk.Button(main_window, text="Save Day", command=save_day)
-save_day_button.pack()
+save_day_button.pack() """
 
-action_frame = tk.Frame(main_window)
-action_frame.pack(pady=10)
+frame = tk.Frame(main_window)
+frame.pack(pady=10)
 
-actions_checkboxes = []
-habits = read_habits_from_file()
+tk.Label(frame, text="Actions").grid(row=0, column=0)
+tk.Label(frame, text="Goals").grid(row=0, column=1)
+
+actions = [] 
+habits = read_values_from_file("habits.txt")
+
+row = 1
 for habit in habits:
     var = IntVar()
-    habit_checkbox = Checkbutton(action_frame, text=habit, variable=var)
-    habit_checkbox.pack(anchor=tk.W)
-    actions_checkboxes.append((var, habit))
+    Checkbutton(frame, text=habit, variable=var).grid(row=row, column=0)
+    row += 1
+    actions.append((var, habit))
 
-open_manager_button = tk.Button(main_window, text="Open Action Manager", command=open_manager)
+open_manager_button = tk.Button(main_window, text="Goal Manager", command=open_manager)
 open_manager_button.pack()
 
 main_window.mainloop()
