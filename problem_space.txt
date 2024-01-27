@@ -1,5 +1,3 @@
-IDEATION FOR MY FUN PROJECT
-
 PROBLEM SPACE:
 01
 - emptying my head from responsibilities
@@ -28,10 +26,11 @@ How can my app help me to better myself?
 /approaching a bigger goal
 
 02
-
-SOLUTION SPACE
-1. goal setting
-2. creating habits aimed towards the goals
-3. planning the habits into a day
-4. execution
-5. review
+what is the motivation to actively use the system?
+/there is really no reason i would have to use the system
+cesta je c9l
+fun_project
+chci se bavit a vztvo5it co nejzabavnejsi applikaci
+chci propojit cile s aktivitami, abzch mohl pocitat jak na cili pracuji
+chybí cíle a jejich requirements
+aktivity nemají žádnou hodnotu
