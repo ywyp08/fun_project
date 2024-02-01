@@ -1,1 +1,5 @@
-2024-02-01: napsat si o konzultaci bakalarky: 90
+2024-02-01: napsat si o konzultaci bakalarky: 97: active
+2024-02-01: it works!: 7: active
+2024-02-01: new_shit: 28: active
+2024-02-01: úprava dotazování dat (ne vše povinné): 88: active
+2024-02-01: funkce tlačítak done a delete: 80: active
