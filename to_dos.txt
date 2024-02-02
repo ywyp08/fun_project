@@ -1,6 +1,0 @@
-2024-02-02: vytvořit modely k bakalářské práci: 8: active: 0
-2024-02-02: zpracovat SQL statistiky do verisoftu: 6: active: 0
-2024-02-02: and the button works as well: -999: deleted: 2024-02-02
-2024-02-02: now i can add to-dos by hitting enter: -999: deleted: 2024-02-02
-2024-02-02: upravit kod to-do appky tak, abych s ním byl spokojen: -999: done: 2024-02-02
-2024-02-02: vytvořit funkční to-do appku: -999: done: 2024-02-02
